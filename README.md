@@ -32,16 +32,35 @@ If you see the following response in the browser:
 {"status":"OK","data":"2022-02-13T20:05:13.965Z"}
 ```
 
-It means that everything work as expected. And you may start developing your business logic. You may go to "How to work with NET.ts" chapter.
+It means that everything work as expected. And you may start developing your business logic. You may go to "How to work with NET.ts" chapter now.
+
+## Getting started, standard way (no containerization)
+
+If you want to run NET.ts "standard way" using the `npm` instead of `docker-compose`.
+You are free to do it just keep in mind that I develop the NET.ts project on node version 16.
+Note: you need to set env variables defined in `.env.local` file. On mac OS you can use `source .env.local`
+
+Install dependencies:
+
+```
+npm install
+```
+
+Run server in dev mode:
+
+```
+npm run server:dev
+```
 
 ## How to work with NET.ts
 
 There are few rules that you have to obey to enjoy NET.ts fully.
 
 1. Enviromment variables - define your envs in `.env.local` file and provide validation rules for them inside `@config/config.ts` file.
-2. Do not change code inside the `core` directory.
-3. Structure your solution by components. There is an example user CRUD component that shows how you may build logic for your own componnents.
-4. Define your routung inside `api.ts` fiile.
+2. Structure your solution by components. There is an example user CRUD component that shows how you may build logic for your own componnents.
+3. Define your routung inside `api.ts` fiile.
+4. Describe your newly created API inside `swagger.json` file
+5. Do not change code inside the `core` directory.
 
 ## Testing
 

@@ -1,5 +1,5 @@
 {
-  "name": "NET.ts",
+  "name": "net.ts",
   "version": "1.0.0",
   "description": "Node Express Template written in TypeScript NET.ts based on nodebestpractices",
   "main": "src/server.ts",
