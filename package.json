@@ -16,7 +16,18 @@
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint ./src/**/*.ts --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "express template",
+    "node template",
+    "node express template",
+    "node express template ts",
+    "typescript template",
+    "express",
+    "boilerplate",
+    "best practices node",
+    "boilerplate node",
+    "node ts template"
+  ],
   "author": "nowicki.przemek@gmail.com",
   "license": "ISC",
   "dependencies": {
