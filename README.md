@@ -32,7 +32,8 @@ If you see the following response in the browser:
 {"status":"OK","data":"2022-02-13T20:05:13.965Z"}
 ```
 
-It means that everything work as expected. And you may start developing your business logic. You may go to "How to work with NET.ts" chapter now.
+It means that everything work as expected. You may start to develop your business logic. 
+Please scroll down to "How to work with NET.ts" section.
 
 ## Getting started, standard way (no containerization)
 
