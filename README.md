@@ -1,0 +1,113 @@
+# Node Express Template (NET.ts)
+
+The **N**ode **E**xpress **T**emplate (NET.ts) is a small template project which help you to speed up the process of building RESTful API.
+
+Inside of this repoistory you will find fully configured and ready to use **express** based web application for **Node.js** runtime. It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
+
+## Getting started
+
+Install `Docker` and `Docker Compose` which are used to maximise the convenience of development on local machine.
+
+When both are installed, build the NET.ts image as follow:
+
+```sh
+docker-compose build
+```
+
+Run the app:
+
+```sh
+docker-compose up
+```
+
+Go to:
+
+```
+ http://localhost:8080/api/health
+```
+
+If you see the following response in the browser:
+
+```
+{"status":"OK","data":"2022-02-13T20:05:13.965Z"}
+```
+
+It means that everything work as expected. And you may start developing your business logic. You may go to "How to work with NET.ts" chapter.
+
+## How to work with NET.ts
+
+There are few rules that you have to obey to enjoy NET.ts fully.
+
+1. Enviromment variables - define your envs in `.env.local` file and provide validation rules for them inside `@config/config.ts` file.
+2. Do not change code inside the `core` directory.
+3. Structure your solution by components. There is an example user CRUD component that shows how you may build logic for your own componnents.
+4. Define your routung inside `api.ts` fiile.
+
+## Testing
+
+The Jest test suites are run by executing
+
+```sh
+npm test
+```
+
+To run tests directly insiide of the NET.ts container:
+
+```sh
+docker-compose run web npm run test
+```
+
+## Code linting
+
+```sh
+npm run lint
+```
+
+or insde of the container
+
+```sh
+docker-compose run web npm run lint
+```
+
+## Fixing problems
+
+Automatically fix linter's problems
+
+```sh
+npm run lint:fix
+```
+
+or insde of the container
+
+```sh
+docker-compose run web npm run lint:fix
+```
+
+## Logging
+
+```javascript
+import logger from '@core/utils/logger';
+
+logger.error('message'); // level 0
+logger.warn('message'); // level 1
+logger.info('message'); // level 2
+logger.http('message'); // level 3
+logger.verbose('message'); // level 4
+logger.debug('message'); // level 5
+```
+
+In development mode, log messages of all severity levels will be printed to the console.
+In production mode, only `info`, `warn`, and `error` logs will be printed to the console.
+
+Note: API request information (request url, response code, timestamp, etc.) are also automatically logged (using [morgan](https://github.com/expressjs/morgan)).
+
+## SwaggerUI
+
+An interactive API documentation of NET.ts can be accessed at the path: <baseURL>/api-docs \
+For local development use this: http://localhost:8080/api-docs \
+If your webservice's basePath is different from `"/"` put basePath after `api-docs` in url address e.g. \
+for service placed under `<basePath>` subfolder the correct URL is: `https://<baseURL>/<basePath>/api-docs/<basePath>` \
+Remember to select correct protocol befor you try to call any endpoint, "http" is used only for local development. \
+Important: swaggerUI is disabled for the production env
+
+## Known issues

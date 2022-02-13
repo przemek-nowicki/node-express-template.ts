@@ -1,0 +1,52 @@
+
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Node Express Template -> (NET.ts) ",
+    "description": "Node.js NET.ts RESTful API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "healthcheck"
+        ],
+        "summary": "Application service health check 💗",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "x-api-key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    }
+  }
+}

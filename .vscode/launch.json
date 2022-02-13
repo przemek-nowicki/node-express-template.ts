@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "name": "Attach to NET.ts Process",
+      "request": "attach",
+      "port": 9229,
+      "sourceMapPathOverrides": {
+        "<WORKDIR>/*": "${workspaceRoot}/*"
+      }
+    }
+  ]
+}
