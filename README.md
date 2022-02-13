@@ -38,7 +38,8 @@ It means that everything work as expected. And you may start developing your bus
 
 If you want to run NET.ts "standard way" using the `npm` instead of `docker-compose`.
 You are free to do it just keep in mind that I develop the NET.ts project on node version 16.
-Note: you need to set env variables defined in `.env.local` file. On mac OS you can use `source .env.local`
+Note: you need to set env variables defined in `.env.local` file.
+On mac OS you can use `source .env.local` and `export NODE_ENV PORT API_KEY_TOKEN` + other envs from `.env.local` if any.
 
 Install dependencies:
 
