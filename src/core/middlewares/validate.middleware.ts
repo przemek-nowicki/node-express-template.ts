@@ -13,8 +13,10 @@ import { ValidationSchema } from '@core/interfaces/validationSchema';
 const validate =
   (schema: ValidationSchema) =>
   (req: Request, res: Response, next: NextFunction) => {
-    // eslint-disable-next-line
-    const pickObjectKeysWithValue = (Object:object, Keys:string[]) => Keys.reduce((o, k) => (o[k] = Object[k], o), {});
+    /* eslint-disable */
+    const pickObjectKeysWithValue = (Object: object, Keys: string[]) =>
+      Keys.reduce((o, k) => ((o[k] = Object[k]), o), {});
+    /* eslint-enable */
     const definedSchemaKeys = Object.keys(schema);
     const acceptableSchemaKeys: string[] = ['params', 'query', 'body'];
     const filterOutNotValidSchemaKeys: string[] = Object.keys(schema).filter(

@@ -4,6 +4,18 @@ The **N**ode **E**xpress **T**emplate (NET.ts) is a small template project which
 
 Inside of this repoistory you will find fully configured and ready to use **express** based web application for **Node.js** runtime. It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
 
+### Main features:
+
+- 🐳 Containerized application
+- 🚄 [ExpressJS](http://expressjs.com) framework with [TypeScript](https://www.typescriptlang.org/) on the board
+- ♻️ Live reload
+- 🏇 minified and optimized code for production build
+- ✏️ Linting via [ESLint](https://eslint.org) with Airbnb configuration
+- 🚑 Code Formatter with [Prettier](https://prettier.io)
+- 📘 VSCode configuration: Debug, Settings, Tasks and extension for ESLint, Prettier, TypeScript
+- 🚧 Jest for unit testing
+- 🏄 And many more...
+
 ## Getting started
 
 Install `Docker` and `Docker Compose` which are used to maximise the convenience of development on local machine.
@@ -32,7 +44,7 @@ If you see the following response in the browser:
 {"status":"OK","data":"2022-02-13T20:05:13.965Z"}
 ```
 
-It means that everything work as expected. You may start to develop your business logic. 
+It means that everything work as expected. You may start to develop your business logic.
 Please scroll down to "How to work with NET.ts" section.
 
 ## Getting started, standard way (no containerization)

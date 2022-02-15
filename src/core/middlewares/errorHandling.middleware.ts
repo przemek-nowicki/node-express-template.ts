@@ -5,8 +5,13 @@ import AppError from '@core/utils/appError';
 import errorHandler from '@core/utils/errorHandler';
 
 // catch all unhandled errors
-// eslint-disable-next-line
-const errorHandling = (error: Error, req: Request, res: Response, next:NextFunction) => {
+const errorHandling = (
+  error: Error,
+  req: Request,
+  res: Response,
+  // eslint-disable-next-line
+  next: NextFunction,
+) => {
   errorHandler.handleError(error);
   const isTrusted = errorHandler.isTrustedError(error);
   const httpStatusCode = isTrusted

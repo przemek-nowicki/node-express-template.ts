@@ -11,13 +11,17 @@ import Joi from 'joi';
 
 const envsSchema = Joi.object()
   .keys({
-    NODE_ENV: Joi.string().valid('production', 'integration', 'development').required(),
+    NODE_ENV: Joi.string()
+      .valid('production', 'integration', 'development')
+      .required(),
     PORT: Joi.number().default(8080),
     API_KEY_TOKEN: Joi.string().required(),
   })
   .unknown(true);
 
-const { value: envVars, error } = envsSchema.prefs({ errors: { label: 'key' } }).validate(process.env);
+const { value: envVars, error } = envsSchema
+  .prefs({ errors: { label: 'key' } })
+  .validate(process.env);
 
 if (error) {
   throw new Error(
