@@ -16,7 +16,8 @@
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix",
     "prettier": "prettier --check \"{*.js,!(node*)**/*.ts}\"",
-    "prettier:fix": "prettier --write \"{*.js,!(node*)**/*.ts}\""
+    "prettier:fix": "prettier --write \"{*.js,!(node*)**/*.ts}\"",
+    "loglevel:change": "runtime-node-refresh"
   },
   "keywords": [
     "express template",
@@ -46,6 +47,7 @@
     "morgan": "^1.10.0",
     "node-mocks-http": "^1.11.0",
     "path": "^0.12.7",
+    "runtime-node-refresh": "^1.0.5",
     "supertest": "^6.1.6",
     "swagger-ui-express": "^4.3.0",
     "ts-jest": "^27.1.1",

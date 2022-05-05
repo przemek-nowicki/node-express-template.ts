@@ -74,7 +74,6 @@ There are few rules that you have to obey to enjoy NET.ts fully.
 2. Structure your solution by components. There is an example user CRUD component that shows how you may build logic for your own componnents.
 3. Define your routung inside `api.ts` fiile.
 4. Describe your newly created API inside `swagger.json` file
-5. Do not change code inside the `core` directory.
 
 ## Testing
 
@@ -133,6 +132,11 @@ In development mode, log messages of all severity levels will be printed to the 
 In production mode, only `info`, `warn`, and `error` logs will be printed to the console.
 
 Note: API request information (request url, response code, timestamp, etc.) are also automatically logged (using [morgan](https://github.com/expressjs/morgan)).
+
+### Switching log-level on runtime
+
+If you use docker to run the app connect to `node-express-template_web*` container and simply execute `npm run loglevel:change` in new terminal. It will increase your current log level, in case you reach the highest level it will back to error level which is 0.|
+This feature may be useful on production env when you want to switch your app log level to debug without restarting node server.
 
 ## SwaggerUI
 
