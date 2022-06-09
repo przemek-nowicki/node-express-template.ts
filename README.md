@@ -91,6 +91,8 @@ docker-compose run web npm run test
 
 ## Code linting
 
+Run code quality analysis using
+
 ```sh
 npm run lint
 ```
@@ -126,6 +128,7 @@ logger.info('message'); // level 2
 logger.http('message'); // level 3
 logger.verbose('message'); // level 4
 logger.debug('message'); // level 5
+logger.silly('message'); // level 6
 ```
 
 In development mode, log messages of all severity levels will be printed to the console.
