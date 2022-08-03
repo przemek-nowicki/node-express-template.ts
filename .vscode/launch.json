@@ -6,9 +6,11 @@
       "name": "Attach to NET.ts Process",
       "request": "attach",
       "port": 9229,
+      "localRoot": "${workspaceFolder}",
       "sourceMapPathOverrides": {
-        "<WORKDIR>/*": "${workspaceRoot}/*"
-      }
+        "app/*": "${workspaceRoot}/*"
+      },
+      "remoteRoot": "/app/"
     }
   ]
 }
