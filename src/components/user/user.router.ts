@@ -19,7 +19,7 @@ router.post(
   createUser,
 );
 router.get('/user/:id', readUser);
-router.put('/user/', [protectedByApiKey], updateUser);
-router.delete('/user/', [protectedByApiKey], deleteUser);
+router.put('/user/:id', [protectedByApiKey], updateUser);
+router.delete('/user/:id', [protectedByApiKey], deleteUser);
 
 export default router;
