@@ -138,7 +138,7 @@ Note: API request information (request url, response code, timestamp, etc.) are 
 
 ### Switching log-level on runtime
 
-If you use docker to run the app connect to `node-express-template_web*` container and simply execute `npm run loglevel:change` in new terminal. It will increase your current log level, in case you reach the highest level it will back to error level which is 0.|
+If you use docker to run the app, please connect to `node-express-template_web*` container and simply execute `npm run loglevel:change` in new terminal. It will increase your current log level, in case you reach the highest level it will back to error level which is 0.
 This feature may be useful on production env when you want to switch your app log level to debug without restarting node server.
 
 ## SwaggerUI
