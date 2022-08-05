@@ -162,7 +162,7 @@ When done, execute the docker run command to create a container from a net.ts im
 
 That's it, you just ran the app in production mode.
 
-### Contribution
+## Contribution:
 
 All contributions are welcome!
 
