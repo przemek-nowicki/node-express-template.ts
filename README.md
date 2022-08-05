@@ -71,7 +71,7 @@ npm run server:dev
 There are few rules that you have to obey to enjoy NET.ts fully.
 
 1. Enviromment variables - define your envs in `.env.local` file and provide validation rules for them inside `@config/config.ts` file.
-2. Structure your solution by components. There is an example user CRUD component that shows how you may build logic for your own componnents.
+2. Structure your solution by components. There is an example [user](https://github.com/przemek-nowicki/node-express-template.ts/tree/master/src/components/user) CRUD component that shows how you may build logic for your own componnents.
 3. Define your routung inside `api.ts` fiile.
 4. Describe your newly created API inside `swagger.json` file
 
@@ -152,7 +152,7 @@ Important: swaggerUI is disabled for the production env
 
 ## Running in production with Docker
 
-For the sake of readability, you may build an image with custom name i.e. **net.ts**, go to the root project (where the Dockerfile is) and execute: 
+For the sake of readability, you may build an image with custom name i.e. **net.ts**, go to the root project (where the Dockerfile is) and execute:
 
 `docker build -t net.ts .`
 
@@ -162,7 +162,7 @@ When done, execute the docker run command to create a container from a net.ts im
 
 That's it, you just ran the app in production mode.
 
-## Contribution:
+## Contributing
 
 All contributions are welcome!
 
