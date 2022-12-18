@@ -141,6 +141,19 @@ Note: API request information (request url, response code, timestamp, etc.) are 
 If you use docker to run the app, please connect to `node-express-template_web*` container and simply execute `npm run loglevel:change` in new terminal. It will increase your current log level, in case you reach the highest level it will back to error level which is 0.
 This feature may be useful on production env when you want to switch your app log level to debug without restarting node server.
 
+## Troubleshooting
+
+To help you diagnose problems, a Unique Request ID is added to each incoming request and printed to a log. This allows you to correlate log entries for a given web request across multiple log data sources.
+
+Here are some examples of log entries for a Create User request (/api/user):
+
+```log
+web_1  | 2022-12-18 09:56:51 8e06413b-1cbb-41d4-baf3-01ee12b94602 info START Request Id: 8e06413b-1cbb-41d4-baf3-01ee12b94602
+web_1  | 2022-12-18 09:56:51 8e06413b-1cbb-41d4-baf3-01ee12b94602 debug User created: { name: 'John Doe', email: 'john.d@example.net' }
+web_1  | 2022-12-18 09:56:51 8e06413b-1cbb-41d4-baf3-01ee12b94602 info POST /api/user 201 - 145.525 ms
+web_1  | 2022-12-18 09:56:51 8e06413b-1cbb-41d4-baf3-01ee12b94602 info END Request Id: 8e06413b-1cbb-41d4-baf3-01ee12b94602
+```
+
 ## SwaggerUI
 
 An interactive API documentation of NET.ts can be accessed at the path: <baseURL>/api-docs \

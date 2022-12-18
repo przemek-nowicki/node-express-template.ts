@@ -1,5 +1,6 @@
 import winston from 'winston';
 import RnR from 'runtime-node-refresh';
+import httpContext from 'express-http-context';
 
 import config from '@config/config';
 
@@ -14,7 +15,10 @@ const errorStackFormat = winston.format((info) => {
   return info;
 });
 const errorTemplate = ({ timestamp, level, message, stack }) => {
-  let tmpl = `${timestamp} ${level}: ${message}`;
+  const reqId = httpContext.get('ReqId');
+  let tmpl = `${timestamp}`;
+  if (reqId) tmpl += ` ${reqId}`;
+  tmpl += ` ${level} ${message}`;
   if (stack) tmpl += ` \n ${stack}`;
   return tmpl;
 };
