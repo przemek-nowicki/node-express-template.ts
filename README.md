@@ -52,7 +52,7 @@ Please scroll down to "How to work with NET.ts" section.
 If you want to run NET.ts "standard way" using the `npm` instead of `docker-compose`.
 You are free to do it just keep in mind that I develop the NET.ts project on node version 16.
 Note: you need to set env variables defined in `.env.local` file.
-On mac OS you can use `source .env.local` and `export NODE_ENV PORT API_KEY_TOKEN` + other envs from `.env.local` if any.
+On mac OS you can use `export $(cat .env.local)` to export all env variables from the .env.local file.
 
 Install dependencies:
 
