@@ -3,8 +3,7 @@ services:
   web:
     build:
       context: .
-      args:
-        DEV: 'true'
+      dockerfile: Dev.Dockerfile
     command: 'npm run server:dev'
     ports:
       - '8080:8080'

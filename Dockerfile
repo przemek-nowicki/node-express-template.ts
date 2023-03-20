@@ -1,17 +1,23 @@
+# Production Dockerfile
 FROM node:16-alpine
-
-ARG DEV 
-ENV DEV=${DEV:-false}
 
 WORKDIR /app
 
-COPY . .
+# Copy package.json and package-lock.json files first
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
-# Run on CI server / production only
-RUN if [ ! "$DEV" = "true" ] ; then npm run build ; fi
+COPY . .
 
+# Build application
+RUN npm run build
+
+# Run the server in production mode
 CMD npm run server:prod
+
+# Remove source code from production image
+RUN rm -Rf src
 
 EXPOSE 8080 
