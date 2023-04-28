@@ -1,4 +1,4 @@
-# Node Express Template (NET.ts)
+# Node Express Template (NET.ts) with MongoDB
 
 The **N**ode **E**xpress **T**emplate (NET.ts) is a small template project which help you to speed up the process of building RESTful API.
 
@@ -14,6 +14,7 @@ Inside of this repoistory you will find fully configured and ready to use **expr
 - 🚑 Code Formatter with [Prettier](https://prettier.io)
 - 📘 VSCode configuration: Debug, Settings, Tasks and extension for ESLint, Prettier, TypeScript
 - 🚧 Jest for unit testing
+- 🌐 **Mongo database**
 - 🏄 And many more...
 
 ### Additional features:
