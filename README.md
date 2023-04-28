@@ -18,10 +18,7 @@ Inside of this repoistory you will find fully configured and ready to use **expr
 
 ### Additional features:
 
-The `master` branch contains the core version of NET.ts. However, if you need additional module (such as mongoDB for instacne), you can switch to any of the following dedicated branches. Keep in mind that the feature branches are regularly updated with changes made to the core version on the `master` branch.
-
-- 🌐 Mongo database - [See version with MongoDB](https://github.com/przemek-nowicki/node-express-template.ts/tree/add_mongo)
-- 🔒 mTLS - [See version with mTLS](https://github.com/przemek-nowicki/node-express-template.ts/tree/add_mTLS)
+The `master` branch contains the core version of NET.ts. However, if you need additional functionality, you can switch to any of the following dedicated branches. Keep in mind that the feature branches are regularly updated with changes made to the core version on the `master` branch.
 
 ## Getting started
 

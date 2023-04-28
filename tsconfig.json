@@ -24,6 +24,7 @@
     "outDir": "./dist",
     "paths": {
       "@app": ["./app.ts"],
+      "@db": ["./db.ts"],
       "@core/*": ["core/*"],
       "@components/*": ["components/*"],
       "@config/*": ["config/*"]

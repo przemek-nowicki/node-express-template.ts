@@ -14,9 +14,11 @@ const exitHandler = (): void => {
   if (app) {
     server.close(() => {
       logger.info('Server closed');
+      // eslint-disable-next-line no-process-exit
       process.exit(1);
     });
   } else {
+    // eslint-disable-next-line no-process-exit
     process.exit(1);
   }
 };

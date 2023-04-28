@@ -8,6 +8,27 @@ services:
     ports:
       - '8080:8080'
       - '9229:9229'
+    depends_on:
+      - db
     env_file: .env.local
     volumes:
       - './src:/app/src'
+    networks:
+      - node-network
+
+  db:
+    image: mongo:4.4.6
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata:/data/db
+    networks:
+      - node-network
+
+volumes:
+  dbdata:
+
+networks:
+  node-network:
+    driver: bridge
