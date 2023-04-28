@@ -16,6 +16,12 @@ Inside of this repoistory you will find fully configured and ready to use **expr
 - 🚧 Jest for unit testing
 - 🏄 And many more...
 
+### Additional features:
+
+The `master` branch contains the core version of NET.ts. However, if you need additional functionality, you can switch to any of the following dedicated branches. Keep in mind that the feature branches are regularly updated with changes made to the core version on the `master` branch.
+
+- 🌐 Mongo database - [verion with MongoDB](https://github.com/przemek-nowicki/node-express-template.ts/tree/add_mongo)
+
 ## Getting started
 
 Install `Docker` and `Docker Compose` which are used to maximise the convenience of development on local machine.
