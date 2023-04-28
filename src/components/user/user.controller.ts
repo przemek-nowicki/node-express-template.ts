@@ -8,27 +8,27 @@ import {
 } from '@components/user/user.service';
 import { IUser } from '@components/user/user.interface';
 
-const createUser = (req: Request, res: Response) => {
+const createUser = async (req: Request, res: Response) => {
   const user = req.body as IUser;
-  create(user);
+  await create(user);
   res.status(httpStatus.CREATED);
-  res.send({ message: 'Created' });
+  return res.send({ message: 'Created' });
 };
 
-const readUser = (req: Request, res: Response) => {
+const readUser = async (req: Request, res: Response) => {
   res.status(httpStatus.OK);
-  res.send({ message: 'Read', output: read(req.params.id) });
+  res.send({ message: 'Read', output: await read(req.params.id) });
 };
 
-const updateUser = (req: Request, res: Response) => {
+const updateUser = async (req: Request, res: Response) => {
   const user = req.body as IUser;
-  update(user);
+  await update(user);
   res.status(httpStatus.OK);
   res.send({ message: 'Updated' });
 };
 
-const deleteUser = (req: Request, res: Response) => {
-  deleteById(req.params.email);
+const deleteUser = async (req: Request, res: Response) => {
+  await deleteById(req.params.email);
   res.status(httpStatus.ACCEPTED);
   res.send({ message: 'Removed' });
 };
