@@ -26,7 +26,7 @@ const logger: winston.Logger = winston.createLogger({
   level: config.env === 'development' ? 'debug' : 'info',
   format: winston.format.combine(
     errorStackFormat(),
-    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss.SSS' }),
     config.env === 'development'
       ? winston.format.colorize()
       : winston.format.uncolorize(),
