@@ -4,7 +4,8 @@ import mongoose from 'mongoose';
 
 const connect = async () => {
   try {
-    await mongoose.connect(config.mongoUrl);
+    const connectionString = `${config.mongoUrl}/${config.mongoDbName}`;
+    await mongoose.connect(connectionString);
     logger.info('Connected to MongoDB!');
   } catch (err) {
     logger.error(`MongoDB connection error: ${err.message}`);

@@ -13,6 +13,7 @@ services:
     env_file: .env.local
     volumes:
       - './src:/app/src'
+      - './scripts/db:/app/scripts/db'
     networks:
       - node-network
 

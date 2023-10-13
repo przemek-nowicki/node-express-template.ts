@@ -2,7 +2,11 @@
 
 The **N**ode **E**xpress **T**emplate (NET.ts) is a small template project which help you to speed up the process of building RESTful API.
 
-Inside of this repoistory you will find fully configured and ready to use **express** based web application for **Node.js** runtime. It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
+Inside of this branch you will find fully configured and ready to use **express** based web application for **Node.js** runtime with document-oriented database **MongoDB**.
+Additionally, the **migrate-mongo** library is integrated to manage database migrations, enabling you to maintain a versioned history of crucial database changes.
+For more information on **mongo migrations** go here: https://github.com/przemek-nowicki/node-express-template.ts/blob/add_mongo/scripts/db/
+
+It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
 
 ### Main features:
 

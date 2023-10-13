@@ -1,0 +1,12 @@
+{
+  "name": "migrate-mongo-script",
+  "version": "1.0.0",
+  "description": "Database migration script",
+  "main": "migrate-mongo-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "nowicki.przemek@gmail.com",  
+  "license": "ISC"
+}
