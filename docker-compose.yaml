@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dev.Dockerfile
-    command: 'npm run server:dev'
+    command: '/app/scripts/docker/local-run.sh'
     ports:
       - '8080:8080'
       - '9229:9229'

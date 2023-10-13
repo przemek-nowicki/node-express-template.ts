@@ -11,4 +11,6 @@ RUN npm install
 
 COPY . .
 
+RUN chmod +x /app/scripts/docker/local-run.sh
+
 EXPOSE 8080
