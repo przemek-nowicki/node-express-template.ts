@@ -177,7 +177,7 @@ For the sake of readability, you may build an image with custom name i.e. **net.
 
 When done, execute the docker run command to create a container from a net.ts image and starts the container with all the required environment variables:
 
-`docker run --rm -it -e NODE_ENV='production' -e API_KEY_TOKEN='your-api-token' net.ts`
+`docker run --rm -it -e NODE_ENV='production' -e API_KEY_TOKEN='token' -p 8080:8080 net.ts`
 
 That's it, you just ran the app in production mode.
 
