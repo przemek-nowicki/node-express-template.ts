@@ -38,6 +38,7 @@
     "@types/jest": "^27.0.3",
     "@types/morgan": "^1.9.3",
     "apicache": "^1.6.3",
+    "crypto": "^1.0.1",
     "dotenv": "^14.3.2",
     "express": "^4.17.1",
     "express-http-context": "^1.2.4",

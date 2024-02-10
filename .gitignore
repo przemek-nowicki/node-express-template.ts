@@ -1,3 +1,9 @@
+# Certificate files
+*.crt
+*.key
+*.pem
+copy_these_keys_to.env.local
+
 # Logs #
 /logs
 *.log

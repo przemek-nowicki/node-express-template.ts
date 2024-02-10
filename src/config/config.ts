@@ -17,6 +17,9 @@ const envsSchema = Joi.object()
       .required(),
     PORT: Joi.number().default(8080),
     API_KEY_TOKEN: Joi.string().required(),
+    MTLS_SERVER_KEY: Joi.string().required(),
+    MTLS_SERVER_CERT: Joi.string().required(),
+    MTLS_CA_CERT: Joi.string().required(),
   })
   .unknown(true);
 
@@ -39,4 +42,11 @@ export default {
   xApiKey: envVars.API_KEY_TOKEN,
   ptojectName: packageData.name,
   projectVersion: packageData.version,
+  mTlsServerKey: Buffer.from(envVars.MTLS_SERVER_KEY, 'base64').toString(
+    'utf-8',
+  ),
+  mTlsServerCert: Buffer.from(envVars.MTLS_SERVER_CERT, 'base64').toString(
+    'utf-8',
+  ),
+  mTlsCaCert: Buffer.from(envVars.MTLS_CA_CERT, 'base64').toString('utf-8'),
 };

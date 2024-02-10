@@ -1,8 +1,9 @@
-# Node Express Template (NET.ts)
+# Node Express Template (NET.ts) with mTLS
 
 The **N**ode **E**xpress **T**emplate (NET.ts) is a small template project which help you to speed up the process of building RESTful API.
 
-Inside of this repoistory you will find fully configured and ready to use **express** based web application for **Node.js** runtime. It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
+In this branch, you'll find a fully-configured and ready-to-use Express web application for the Node.js runtime, featuring **mTLS** security.
+It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
 
 ### Main features:
 
@@ -14,20 +15,16 @@ Inside of this repoistory you will find fully configured and ready to use **expr
 - 🚑 Code Formatter with [Prettier](https://prettier.io)
 - 📘 VSCode configuration: Debug, Settings, Tasks and extension for ESLint, Prettier, TypeScript
 - 🚧 Jest for unit testing
+- **🔒 mTLS**
 - 🏄 And many more...
-
-### Additional features:
-
-The `master` branch contains the core version of NET.ts. However, if you need additional module (such as mongoDB for instacne), you can switch to any of the following dedicated branches. Keep in mind that the feature branches are regularly updated with changes made to the core version on the `master` branch.
-
-- 🌐 Mongo database - [See version with MongoDB](https://github.com/przemek-nowicki/node-express-template.ts/tree/add_mongo)
-- 🔒 mTLS - [See version with mTLS](https://github.com/przemek-nowicki/node-express-template.ts/tree/add_mTLS)
 
 ## Getting started
 
 Install `Docker` and `Docker Compose` which are used to maximise the convenience of development on local machine.
 
-When both are installed, build the NET.ts image as follow:
+In order to obtain the mTLS config. Run /scripts/certs/generate_certificates.sh script, then copy and paste the variables from generated copy_these_keys_to.env.local file into .env.local file.
+
+When both tools are installed and keys generated, build the NET.ts image as follow:
 
 ```sh
 docker-compose build
@@ -42,7 +39,7 @@ docker-compose up
 Go to:
 
 ```
- http://localhost:8080/api/health
+ https://localhost:8080/api/health
 ```
 
 If you see the following response in the browser:
@@ -52,7 +49,19 @@ If you see the following response in the browser:
 ```
 
 It means that everything work as expected. You may start to develop your business logic.
-Please scroll down to "How to work with NET.ts" section.
+
+To run tests for protected endpint with client keys execute client_tests.sh file:
+If tests passed correctly you should see following result:
+
+```sh
+$./client_tests.sh
+Testing request WITH client certificate...
+Test with certificate PASSED: Able to access https://localhost:8080/api/secure/test-data
+Response: {"status":"OK","data":"Secure data protected by mTLS"}
+
+Testing request WITHOUT client certificate...
+Test without certificate PASSED: Correctly denied access to https://localhost:8080/api/secure/test-data
+```
 
 ## Getting started, standard way (no containerization)
 
@@ -164,7 +173,7 @@ web_1  | 2022-12-18 09:56:51 8e06413b-1cbb-41d4-baf3-01ee12b94602 info END Reque
 ## SwaggerUI
 
 An interactive API documentation of NET.ts can be accessed at the path: <baseURL>/api-docs \
-For local development use this: http://localhost:8080/api-docs \
+For local development use this: https://localhost:8080/api-docs \
 If your webservice's basePath is different from `"/"` put basePath after `api-docs` in url address e.g. \
 for service placed under `<basePath>` subfolder the correct URL is: `https://<baseURL>/<basePath>/api-docs/<basePath>` \
 Remember to select correct protocol befor you try to call any endpoint, "http" is used only for local development. \

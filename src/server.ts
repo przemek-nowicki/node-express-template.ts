@@ -1,13 +1,24 @@
-import { Server } from 'http';
+import https, { Server } from 'https';
 import app from '@app';
 import config from '@config/config';
 import logger from '@core/utils/logger';
 import errorHandler from 'core/utils/errorHandler';
+import { NetHttpsServerOptions } from '@core/interfaces/netHttpsServer';
 
 const { port, ptojectName } = config;
 
-const server: Server = app.listen(port, (): void => {
-  logger.info(`Aapplication '${ptojectName}' listens on PORT: ${port}`);
+const options: NetHttpsServerOptions = {
+  key: config.mTlsServerKey,
+  cert: config.mTlsServerCert,
+  ca: config.mTlsCaCert,
+  requestCert: true,
+  rejectUnauthorized: false,
+};
+
+const server: Server = https.createServer(options, app);
+
+server.listen(port, () => {
+  logger.info(`Application '${ptojectName}' listens on PORT: ${port}`);
 });
 
 const exitHandler = (): void => {
