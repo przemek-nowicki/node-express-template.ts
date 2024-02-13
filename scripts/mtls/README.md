@@ -6,4 +6,27 @@ In this folder, you'll find two scripts that you may use for setting up and test
 
 There is also included a `client_tests.sh` script for a quick validation of local mTLS setup. It runs tests making HTTP requests with and without the client certificate using curls, showing that the setup works localy.
 
-For a production-ready solution, it's essential to use certificates signed by a trusted Certificate Authority (CA) to ensure the highest level of security and trustworthiness of mTLS setup.
+```console
+$ ./client_tests.sh
+Testing request WITH client certificate...
+Test with certificate PASSED: Able to access https://localhost:8080/api/secure/test-data
+Response: {"status":"OK","data":"Secure data protected by mTLS"}
+
+Testing request WITHOUT client certificate...
+Test without certificate PASSED: Correctly denied access to https://localhost:8080/api/secure/test-data
+```
+
+You can also run the `client.js` javascript client via Node.js to test local mTLS (btw, just don't forget to run NET.ts server before you start testing those clients ;).
+
+```console
+node client.js
+Attempt to call: https://localhost//api/secure/test-data:8080 with client certificate and key
+SERVER RESPONSE
+STATUS: 200
+Response body: {"status":"OK","data":"Secure data protected by mTLS"}
+--
+```
+
+Important: For a production-ready solution, it's essential to use certificates signed by a trusted Certificate Authority (CA) to ensure the highest level of security and trustworthiness of mTLS setup.
+
+If you need this setup to work on AWS, just drop me a line.
