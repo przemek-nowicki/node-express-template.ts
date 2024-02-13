@@ -2,7 +2,10 @@
 
 The **N**ode **E**xpress **T**emplate (NET.ts) is a small template project which help you to speed up the process of building RESTful API.
 
-In this branch, you'll find a fully-configured and ready-to-use Express web application for the Node.js runtime, featuring **mTLS** security.
+In this branch, you'll find a fully-configured and ready-to-use Express web application for the Node.js runtime, featuring **mutual TLS** security.
+
+**Important:** Before you begin exploring, you must provide both client and server certificates. To simplify the process for local development, you can use self-signed certificates, which can be generated using the script from `/scripts/mtls` folder. Learn more [here](https://github.com/przemek-nowicki/node-express-template.ts/tree/add_mTLS/scripts/mtls)
+
 It’s built on **TypeScript** and follows the best **top-ranked** content on Node.js best practices from https://github.com/goldbergyoni/nodebestpractices repository.
 
 ### Main features:
