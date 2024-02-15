@@ -4,10 +4,10 @@ import config from '@config/config';
 import logger from '@core/utils/logger';
 import errorHandler from 'core/utils/errorHandler';
 
-const { port } = config;
+const { port, ptojectName } = config;
 
 const server: Server = app.listen(port, (): void => {
-  logger.info(`Aapplication listens on PORT: ${port}`);
+  logger.info(`Aapplication '${ptojectName}' listens on PORT: ${port}`);
 });
 
 const exitHandler = (): void => {

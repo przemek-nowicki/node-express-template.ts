@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import { readPackage } from '@core/utils/package';
 
 // All env variables used by the app should be defined in this file.
 
@@ -29,10 +30,13 @@ if (error) {
      This app requires env variables to work properly. If you run app locally use docker-compose`,
   );
 }
+const packageData = readPackage(process.cwd(), true);
 
 // map env vars and make it visible outside module
 export default {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
   xApiKey: envVars.API_KEY_TOKEN,
+  ptojectName: packageData.name,
+  projectVersion: packageData.version,
 };

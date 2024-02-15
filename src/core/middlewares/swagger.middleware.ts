@@ -5,6 +5,7 @@ import swaggerUi from 'swagger-ui-express';
 import AppError from '@core/utils/appError';
 import logger from '@core/utils/logger';
 import consts from '@config/consts';
+import config from '@config/config';
 import swaggerDocument from '../../swagger.json';
 
 const swaggerForbidden = () => {
@@ -18,6 +19,7 @@ const swaggerForbidden = () => {
 const swaggerBasePath = (req: Request, res: Response, next: NextFunction) => {
   const basePath: string = req.originalUrl.replace(consts.API_DOCS_PATH, '');
   swaggerDocument.basePath = basePath;
+  swaggerDocument.info.version = config.projectVersion;
   swaggerUi.setup(swaggerDocument)(req, res, () => {
     next();
   });
