@@ -1,4 +1,4 @@
-# mTLS scripts
+# Use scripts to creat Self-Signed Certificates for Local mTLS Testing
 
 In this folder, you'll find two scripts that you may use for setting up and testing mTLS locally:
 
