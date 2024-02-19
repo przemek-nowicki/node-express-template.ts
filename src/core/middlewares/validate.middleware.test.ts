@@ -21,6 +21,16 @@ const validationSchemaWithAllOptions: ValidationSchema = {
     id: Joi.number().integer(),
   }),
 };
+const validationSchemaPropertyPollution: ValidationSchema = {
+  body: Joi.object().keys({
+    input: Joi.object()
+      .keys({
+        required_field: Joi.string().required(),
+        ok_to_be_empty_field: Joi.string().allow(''),
+      })
+      .unknown(true),
+  }),
+};
 
 const skip = null;
 
@@ -74,4 +84,31 @@ describe('Validate middleware', () => {
       );
     },
   );
+
+  test('should block prototype pollution attempt', () => {
+    const next = jest.fn();
+    const res: Response = httpMocks.createResponse();
+    const req: Request = httpMocks.createRequest({
+      method: 'POST',
+      url: '/pollution',
+      body: {
+        input: {
+          required_field: 'The required value',
+          __proto__: { ok_to_be_empty_field: 'hacked' },
+        },
+      },
+    });
+
+    validate(validationSchemaPropertyPollution)(req, res, next);
+
+    // check if prototype pollution was successful
+    expect(({} as any).ok_to_be_empty_field).toBeUndefined();
+
+    // ensure the next middleware is called without any errors
+    expect(next).toHaveBeenCalled();
+    expect(next).not.toHaveBeenCalledWith(expect.any(AppError));
+
+    // ensure "ok_to_be_empty_field" has not been polluted
+    expect(req.body.input.ok_to_be_empty_field).toBeUndefined();
+  });
 });

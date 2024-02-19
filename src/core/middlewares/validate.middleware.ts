@@ -17,6 +17,19 @@ const validate =
     const pickObjectKeysWithValue = (Object: object, Keys: string[]) =>
       Keys.reduce((o, k) => ((o[k] = Object[k]), o), {});
     /* eslint-enable */
+    // sanitization function to prevent prototype pollution
+    const sanitizeRequestBody = (obj: any): any =>
+      Object.keys(obj).reduce((acc, key) => {
+        if (!['__proto__', 'constructor', 'prototype'].includes(key)) {
+          acc[`${key}`] =
+            typeof obj[`${key}`] === 'object' &&
+            obj[`${key}`] !== null &&
+            !Array.isArray(obj[`${key}`])
+              ? sanitizeRequestBody(obj[`${key}`])
+              : obj[`${key}`];
+        }
+        return acc;
+      }, {});
     const definedSchemaKeys = Object.keys(schema);
     const acceptableSchemaKeys: string[] = ['params', 'query', 'body'];
     const filterOutNotValidSchemaKeys: string[] = Object.keys(schema).filter(
@@ -30,6 +43,7 @@ const validate =
       schema,
       filterOutNotValidSchemaKeys,
     );
+    req.body = sanitizeRequestBody(req.body);
     const object = pickObjectKeysWithValue(req, Object.keys(validSchema));
     const { value, error } = Joi.compile(validSchema)
       .prefs({ errors: { label: 'key' } })
