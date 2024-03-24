@@ -1,6 +1,6 @@
 {
   "name": "net.ts",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Node Express Template written in TypeScript NET.ts based on nodebestpractices",
   "main": "src/server.ts",
   "engines": {

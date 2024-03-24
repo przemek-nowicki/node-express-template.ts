@@ -20,6 +20,10 @@ const swaggerBasePath = (req: Request, res: Response, next: NextFunction) => {
   const basePath: string = req.originalUrl.replace(consts.API_DOCS_PATH, '');
   swaggerDocument.basePath = basePath;
   swaggerDocument.info.version = config.projectVersion;
+  // Check if the request is made over HTTPS and ensure only "https" remains in the schemes
+  if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
+    swaggerDocument.schemes = ['https'];
+  }
   swaggerUi.setup(swaggerDocument)(req, res, () => {
     next();
   });
